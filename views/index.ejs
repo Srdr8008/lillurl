@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lillurl</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for width and spacing */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        section h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+        }
+        section p {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="navbar">
+        <div class="nav-logo">🔗 My URL Shortener</div>
+        <nav class="nav-links">
+            <a href="javascript:void(0);" onclick="showHome()">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>Shorten Your URL</h1>
+        <p class="subtext">Paste a long URL below to get a shortened link instantly</p>
+
+        <form action="/shorten" method="POST">
+            <input type="url" name="url" placeholder="Enter your long URL..." required>
+            <button type="submit">Shorten URL</button>
+        </form>
+
+        <% if (shortUrl) { %>
+            <div class="result">
+                <p>Your shortened URL:</p>
+                <div class="short-url-box">
+                    <a href="<%= shortUrl %>" target="_blank" id="shortUrl"><%= shortUrl %></a>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+                <p id="copyMessage" class="copy-message"></p>
+            </div>
+        <% } %>
+
+        <!-- Home Section -->
+        <section id="homeContent" style="display:none;">
+            <h2>Why Use URL Shortener?</h2>
+            <p>URL shorteners make long, complex URLs much shorter and easier to share. They help you create compact links for use in social media, emails, or anywhere you need a short, shareable link. Whether you are promoting content or sharing links with friends, a URL shortener is an excellent tool!</p>
+
+            <h2>How It Works</h2>
+            <p>Simply paste a long URL into the form, and click "Shorten URL." We will generate a short URL that you can copy and share. It’s that easy!</p>
+        </section>
+    </div>
+
+    <!-- Copy Script -->
+    <script>
+        function copyToClipboard() {
+            const urlText = document.getElementById('shortUrl').textContent;
+            navigator.clipboard.writeText(urlText).then(() => {
+                const msg = document.getElementById('copyMessage');
+                msg.textContent = "✅ Copied to clipboard!";
+                setTimeout(() => {
+                    msg.textContent = "";
+                }, 2000);
+            });
+        }
+
+        // Function to toggle home content visibility
+        function showHome() {
+            const homeContent = document.getElementById('homeContent');
+            if (homeContent.style.display === "none") {
+                homeContent.style.display = "block";
+            } else {
+                homeContent.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

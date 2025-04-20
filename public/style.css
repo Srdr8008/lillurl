@@ -1,0 +1,115 @@
+/* Gradient Background & Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+/* Navbar / Banner */
+.navbar {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #e0e0e0;
+}
+
+/* Main container */
+.container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.subtext {
+    color: #e0e0e0;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Form Styling */
+form input[type="url"] {
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2563eb;
+}
+
+/* Shortened URL result */
+.result {
+    margin-top: 30px;
+    font-size: 16px;
+    background-color: #ffffff22;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ffffff33;
+    color: #fff;
+}
+
+.result a {
+    color: #ffd700;
+    word-break: break-word;
+}
