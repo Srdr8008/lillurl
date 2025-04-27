@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "16.x"
+    "node": "16.x"  // ← This line was the problem (fixed by adding quotes)
   },
   "keywords": [],
   "author": "",
